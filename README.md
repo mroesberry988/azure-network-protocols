@@ -5,7 +5,7 @@
 
 <h1>Network Security Groups (NSGs) and Inspecting Traffic Between Azure Virtual Machines</h1>
 
-In this step-by-step tutorial, we observe various network traffic to and from Azure Virtual Machines with Wireshark as well as experiment with Network Security Groups. Wireshark is a protocol analyzer that lets us see the actual raw traffic between  the two Virtual Networks (VM's).
+In this step-by-step tutorial, we observe various network traffic to and from Azure Virtual Machines with Wireshark(ICMP, SSH, DHCP, DNS, and RDP) as well as experiment with Network Security Groups. Wireshark is a protocol analyzer that lets us see the actual raw traffic between  the two Virtual Networks (VM's).
 
 
 <h2>Environments and Technologies Used</h2>
@@ -20,6 +20,8 @@ In this step-by-step tutorial, we observe various network traffic to and from Az
 
 - Windows 10 (21H2)
 - Ubuntu Server 20.04
+
+  
 
 1) In Azure, we first need to create our Resource Group. (See Pictures Below)
 2) Create a Windows 10 Virtual Machine (VM)
@@ -41,24 +43,28 @@ We are now on our Remote Desktop and can continue through the following steps(Ph
 
 5) Once in VM1, Install and Download Wireshark. Again, Wireshark is a tool where we can view raw traffic between the two Virtual Machines.
 6) As Wireshark opens, click Ethernet, and up at the top left corner click the fin-like icon to start capturing packets. This allows us to see live traffic that is happening on our own VM1.
-   a.To filter traffic so the spamming stops, we are going to go to the top left space and type in ICMP, and push enter. We now see Wireshark only showing ICMP (a protocol Ping uses to test connectivity).
+   a.To filter traffic so the spamming stops, we are going to go to the top left space type in ICMP, and push enter. We now see Wireshark only showing ICMP (a protocol Ping uses to test connectivity).
    b. Our next step is to "ping" VM2 and attempt to ping within the Windows 10 VM.
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/c409ea70-b37b-488b-b305-8784e31ff1a2)
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/b8dd14f7-abdb-4408-8e62-8b8beb04d547)
-
-7) Retrieve the Linux or Ubuntu Virtual Machine (VM2) and attempt to ping it from within the Windows 10 VM Remote Desktop
-   a. As we either type in or Copy and Paste  (ex: 10.0.0.5), observe the ping requests and replies within Wireshark.
-8) Again in Remote Desktop, the Windows 10 VM, open Powershell and attempt to ping a public website such as www.google.com and observe the traffic within Wireshark.
    
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/ab06a9a4-7be1-4b20-81ae-e9d2fa783083)
 
+7) Retrieve the Linux or Ubuntu Virtual Machine (VM2) and attempt to ping it from within the Windows 10 VM Remote Desktop (See Picture Below)
+   a. As we either type in or Copy and Paste  (ex: 10.0.0.5), observe the ping requests and replies within Wireshark.
+   b. For an exercise, in Remote Desktop Windows 10 VM, open Powershell and attempt to ping a public website such as www.google.com and observe the traffic within Wireshark.
+8) Next we are going to Initiate a non-stop ping from Windows 10 (VM1) and  Linux/Ubuntu (VM2)
+   a.Enter the VM 2 Private IP address (10.0.0.5)-t
+   b.While "pinging" we are going to change the firewall on VM2 to not allow ICMP Traffic to come through. As we do this, we will see the connection between VM1 and VM2 stop "Pinging".  
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/d988f467-ff7e-4a4c-b52a-6e677c45c2ce)
 
+9) You are doing great! We are almost complete with observing ICMP Traffic. Lastly in Azure, we are going to search Network Security Group within our Linux/Ubuntu (VM2). (Photos Below)
+   a.Scroll down to Inbound Security Rules. We can now observe when we Add Rule/ Deny Rules.
+   b.We are going to Allow Rule and observe the Network Security Rule to receive responses from VM2. 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/f66a50ab-bfd5-4b2e-8ec7-ee86d36b5ec1)
-
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/09a86497-ad40-42cb-995a-6bfa8f144105)
 
