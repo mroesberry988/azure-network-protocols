@@ -69,6 +69,7 @@ We are now on our Remote Desktop and can continue through the following steps(Ph
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/09a86497-ad40-42cb-995a-6bfa8f144105)
 
 Observing SSH:
+
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/1810ae20-6a65-434b-a9c9-f10ff522a172)
 
 Observing DHCP:
