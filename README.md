@@ -68,11 +68,15 @@ We are now on our Remote Desktop and can continue through the following steps(Ph
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/09a86497-ad40-42cb-995a-6bfa8f144105)
 
+Below we will now observe SSH, DHCP, DNS, and RDD data in Wireshark, and Powershell:
+
 Observing SSH:
+As we explore SSH traffic we connect VM1 to VM2 via SSH. First, we open Powershell and type in SSH with the username created when creating VM2. Continuing in Powershell, we enter the IP Private address of VM2
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/1810ae20-6a65-434b-a9c9-f10ff522a172)
 
 Observing DHCP:
+
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/f40284a2-7254-4b79-ba0a-582f682767f2)
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/477ae1e6-9ac2-4325-a78d-83cd1aefe6e6)
