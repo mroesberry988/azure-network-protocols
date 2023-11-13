@@ -71,22 +71,35 @@ We are now on our Remote Desktop and can continue through the following steps(Ph
 Below we will now observe SSH, DHCP, DNS, and RDD data in Wireshark, and Powershell:
 
 Observing SSH:
-As we explore SSH traffic we connect VM1 to VM2 via SSH. First, we open Powershell and type in SSH with the username created when creating VM2. Continuing in Powershell, we enter the IP Private address of VM2
+10) To observe the SSH traffic, we go back into Wireshark, and filter for SSH only.
+11) Next, we will connect your Windows 10 VM(VM1), and connect your Linux/ Ubuntu Virtual Machine (VM2) by using its Private IP Address. 
+    a. In Powershell, type in SSH and commands of username and password created for logging in SSH terminal. As we do so we can observe SSH traffic in Wireshark
+    b. Exit the SSH Connection by typing 'Exit 'and pressing Enter.
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/1810ae20-6a65-434b-a9c9-f10ff522a172)
 
 Observing DHCP:
+12) Back in Wireshark, filter for DHCP traffic only
+13) From your Windows 10 VM (VM1), attempt to issue your VM with a new IP address from the command line.
+    a. Type in ipconfig/renew
+    b. Now we can observe the DHCP traffic appearing in Wireshark
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/f40284a2-7254-4b79-ba0a-582f682767f2)
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/477ae1e6-9ac2-4325-a78d-83cd1aefe6e6)
 
 Observing DNS:
+14) Back to WireShark, filter for DNS traffic only
+15) In Windows 10 (VM1) within Powershell, use NSlookup IP address to see for example google.com. As observed in Powershell (command line) we can see the IP address.
+
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/f982281a-9908-4ddd-b28c-ba4fb8d8c81d)
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/f76a9aaa-043f-4496-93be-730c134bea8e)
 
 Observing RDP:
+16) Lastly, we will observe RDP traffic. Back in Wireshark, filter RDP only 
+17) Observe the immediate non-stop traffic. RDP constantly shows a live stream from one computer to another, as traffic is always being transmitted.
+
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/f63bffb2-f9c8-47eb-8228-9aca6f0a25e7)
 
 
