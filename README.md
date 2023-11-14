@@ -6,6 +6,12 @@
 <h1>Network Security Groups (NSGs) and Inspecting Traffic Between Azure Virtual Machines</h1>
 
 In this step-by-step tutorial, we observe various network traffic to and from Azure Virtual Machines with Wireshark(ICMP, SSH, DHCP, DNS, and RDP) as well as experiment with Network Security Groups. 
+Before we begin, here are a few definitions of the protocols we will be observing:
+-DHCP(UDP 67 & 68): This protocol is used to assign an IP address to devices when they are the first connected to the network.
+-DNS(TCP & UDP 53):DNS stands for Domain Name System(or Domain Naming Server). The Primary Goal is the convert human-readable domain names( Ex: www.google.com) to an IP address that computers can use and understand.
+-RDP(TCP 3389): RDP(Remote Desktop Protocol) is used when remotely connecting from one computer to another to gain a remote desktop. The computer being connected to is typically "listening" for a connection on TCP port 3389. 
+-SSH: Secure Shell(TCP 22) is used when remotely connecting from one computer to another and spawning a command line. The computer being connected to is typically "listening" for a connection on TCP port 22.
+ICMP(No Port):ICMP stands for "Internet Control Message Protocol" This is the protocol that "ping"( a command tool used to check if another computer is reachable on the network line) uses.
 
 <h2>Environments and Technologies Used</h2>
 
