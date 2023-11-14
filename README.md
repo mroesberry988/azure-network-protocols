@@ -42,8 +42,9 @@ We are now on our Remote Desktop and can continue through the following steps(Ph
 
 5) Once in VM1, Install and Download Wireshark. Again, Wireshark is a tool where we can view raw traffic between the two Virtual Machines.
 6) As Wireshark opens, click Ethernet, and up at the top left corner click the fin-like icon to start capturing packets. This allows us to see live traffic that is happening on our own VM1.
-   a.To filter traffic so the spamming stops, we are going to go to the top left space type in ICMP, and push enter. We now see Wireshark only showing ICMP (a protocol Ping uses to test connectivity).
-   b. Our next step is to "ping" VM2 and attempt to ping within the Windows 10 VM.
+
+    a.To filter traffic so the spamming stops, we are going to go to the top left space type in ICMP, and push enter. We now see Wireshark only showing ICMP (a protocol Ping uses to test connectivity).
+    b. Our next step is to "ping" VM2 and attempt to ping within the Windows 10 VM.
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/c409ea70-b37b-488b-b305-8784e31ff1a2)
 
@@ -52,15 +53,18 @@ We are now on our Remote Desktop and can continue through the following steps(Ph
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/ab06a9a4-7be1-4b20-81ae-e9d2fa783083)
 
 7) Retrieve the Linux or Ubuntu Virtual Machine (VM2) and attempt to ping it from within the Windows 10 VM Remote Desktop (See Picture Below)
-   a. As we either type in or Copy and Paste  (ex: 10.0.0.5), observe the ping requests and replies within Wireshark.
-   b. For an exercise, in Remote Desktop Windows 10 VM, open Powershell and attempt to ping a public website such as www.google.com and observe the traffic within Wireshark.
+
+    a. As we either type in or Copy and Paste  (ex: 10.0.0.5), observe the ping requests and replies within Wireshark.
+    b. For an exercise, in Remote Desktop Windows 10 VM, open Powershell and attempt to ping a public website such as www.google.com and observe the traffic within Wireshark.
 8) Next we are going to Initiate a non-stop ping from Windows 10 (VM1) and  Linux/Ubuntu (VM2)
-   a.Enter the VM 2 Private IP address (10.0.0.5)-t
+
+    a.Enter the VM 2 Private IP address (10.0.0.5)-t
    b.While "pinging" we are going to change the firewall on VM2 to not allow ICMP Traffic to come through. As we do this, we will see the connection between VM1 and VM2 stop "Pinging".  
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/d988f467-ff7e-4a4c-b52a-6e677c45c2ce)
 
 9) You are doing great! We are almost complete with observing ICMP Traffic. Lastly in Azure, we are going to search Network Security Group within our Linux/Ubuntu (VM2). (Photos Below)
+
    a.Scroll down to Inbound Security Rules. We can now observe when we Add Rule/ Deny Rules.
    b.We are going to Allow Rule and observe the Network Security Rule to receive responses from VM2. 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/f66a50ab-bfd5-4b2e-8ec7-ee86d36b5ec1)
@@ -73,6 +77,7 @@ Observing SSH:
 10) To observe the SSH traffic, we go back into Wireshark, and filter for SSH only.
 
 11) Next, we will connect your Windows 10 VM(VM1), and connect your Linux/ Ubuntu Virtual Machine (VM2) by using its Private IP Address. 
+
     a. In Powershell, type in SSH and commands of username and password created for logging in SSH terminal. As we do so we can observe SSH traffic in Wireshark
     b. Exit the SSH Connection by typing 'Exit 'and pressing Enter.
 
@@ -82,7 +87,8 @@ Observing DHCP:
 12) Back in Wireshark, filter for DHCP traffic only
 
 13) From your Windows 10 VM (VM1), attempt to issue your VM with a new IP address from the command line.
-    a. Type in ipconfig/renew
+
+     a. Type in ipconfig/renew
     b. Now we can observe the DHCP traffic appearing in Wireshark
 
 ![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/f40284a2-7254-4b79-ba0a-582f682767f2)
@@ -103,9 +109,10 @@ Observing RDP:
 
 17) Observe the immediate non-stop traffic. RDP constantly shows a live stream from one computer to another, as traffic is always being transmitted.
 
+![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/f63bffb2-f9c8-47eb-8228-9aca6f0a25e7)
+
 18) Congratulations! You have now completed the step-by-step tutorial on network security groups and their ways of traffic.
 
-![image](https://github.com/mroesberry988/azure-network-protocols/assets/134666751/f63bffb2-f9c8-47eb-8228-9aca6f0a25e7)
 
 
 
